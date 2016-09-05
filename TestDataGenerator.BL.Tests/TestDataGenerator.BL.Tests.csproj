@@ -81,6 +81,19 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestDataGenerator.BL\TestDataGenerator.BL.csproj">
+      <Project>{ab4b5467-059a-49d8-bb92-15f1a14e3179}</Project>
+      <Name>TestDataGenerator.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestDataGenerator.Data\TestDataGenerator.Data.csproj">
+      <Project>{770328ba-b323-404d-b55d-35a86eb1b637}</Project>
+      <Name>TestDataGenerator.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
