@@ -9,25 +9,31 @@ namespace TestDataGenerator.BL
 {
     public class ScriptGenerator : IScriptGenrator
     {
-        public string CreateScript(int entityCount)
+        private readonly IRepository _repository;
+
+        public ScriptGenerator(IRepository repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
         public UserEntity GenerateUser()
         {
-            Repository repository = new Repository();
             UserEntity entity = new UserEntity();
 
-            entity.Login = repository.GetRandomUniqLogin();
-            entity.Name = repository.GetRandomName();
-            entity.Surname = repository.GetRandomSurname();
-            entity.Patronymic = repository.GetRandomPatronymic();
+            entity.Login = _repository.GetRandomUniqLogin();
+            entity.Name = _repository.GetRandomName();
+            entity.Surname = _repository.GetRandomSurname();
+            entity.Patronymic = _repository.GetRandomPatronymic();
 
-            string randomEmailDomain = repository.GetRandomEmailDomain();
+            string randomEmailDomain = _repository.GetRandomEmailDomain();
             entity.Email = string.Format("{0}@{1}", entity.Login, randomEmailDomain);
 
             return entity;
+        }
+
+        public string CreateScript(int entityCount)
+        {
+            throw new NotImplementedException();
         }
 
         public string GetInsertLine()

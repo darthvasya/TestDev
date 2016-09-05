@@ -16,7 +16,8 @@ namespace TestDataGenerator.BL.Tests
         [SetUp]
         public void Init()
         {
-            _generator = new ScriptGenerator();
+            IRepository repository = new RepositoryMock();
+            _generator = new ScriptGenerator(repository);
         }
 
         [Test]
